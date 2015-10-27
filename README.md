@@ -1,18 +1,18 @@
 ![alt text](http://i58.tinypic.com/wjb9j4.png)
 
-##  AppleHDAPatcher - v1.1 - El Capitan Supported. ###
+###  AppleHDAPatcher - v1.1 - El Capitan Supported.
 
-### Please do not upload it on other servers ###.
+#### Please do not upload it on other servers.
  
 Drag a codec folder (or various) to the app.
 
-### Each codec folder must contain: ###
+#### Each codec folder must contain:
  
-	•	Platforms.xml.zlib
-	•	layout*.xml.zlib
-	•	hdaconfig.txt
-	•	binpatch.txt (optional)
-	•	README* (optional)
+•Platforms.xml.zlib
+•layout*.xml.zlib
+•hdaconfig.txt
+•binpatch.txt (optional)
+•README* (optional)
 
 The file hdaconfig.txt must contain the entries to be inserted into Info.plist of AppleHDAHardwareConfigDriver. 
 To create this file just copy the relevant parts to the clipboard (Command+C) and run in terminal:
@@ -69,5 +69,6 @@ In AppleHDAPatcher.app/Contents/Resources there must be an updated original Appl
 
 Credits:
  
-Binpatch script by ###bcc9###
-The ###oldnapalm#### for all the help with the script.
+Binpatch script by ######  bcc9
+
+The ###### oldnapalm  for all the help with the script.

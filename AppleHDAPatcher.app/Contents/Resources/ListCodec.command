@@ -30,13 +30,13 @@ for Codec in $ListCodec
 do
 case ${Codec} in
 	#Desktop's.
-      0x10ec0885)  Codec="Codec Name: Realtek ALC885\nVendor Id:  $Codec";;
-      0x10ec0887)  Codec="Codec Name: Realtek ALC887\nVendor Id:  $Codec";;
-      0x10ec0888)  Codec="Codec Name: Realtek ALC888\nVendor Id:  $Codec";;
-      0x10ec0889)  Codec="Codec Name: Realtek ALC889\nVendor Id:  $Codec";;
-      0x10ec0892)  Codec="Codec Name: Realtek ALC892\nVendor Id:  $Codec";;
-      0x10ec0899)  Codec="Codec Name: Realtek ALC898\nVendor Id:  $Codec";;
-      0x10ec0900)  Codec="Codec Name: Realtek ALC1150\nVendor Id: $Codec";;
+          0x10ec0885)  Codec="Codec Name: Realtek ALC885\nVendor Id:  $Codec";;
+          0x10ec0887)  Codec="Codec Name: Realtek ALC887\nVendor Id:  $Codec";;
+      	  0x10ec0888)  Codec="Codec Name: Realtek ALC888\nVendor Id:  $Codec";;
+      	  0x10ec0889)  Codec="Codec Name: Realtek ALC889\nVendor Id:  $Codec";;
+          0x10ec0892)  Codec="Codec Name: Realtek ALC892\nVendor Id:  $Codec";;
+          0x10ec0899)  Codec="Codec Name: Realtek ALC898\nVendor Id:  $Codec";;
+          0x10ec0900)  Codec="Codec Name: Realtek ALC1150\nVendor Id: $Codec";;
 	  0x11060441)  Codec="Codec Name: VT2021\nVendor Id:  $Codec";;
 	#Laptop's.
 	  0x10ec0233)  Codec="Codec Name: Realtek ALC233\nVendor Id:  $Codec";;
@@ -70,12 +70,11 @@ case ${Codec} in
 	  0x111d76e0)  Codec="Codec Name: IDT 92HD91BXX\nVendor Id:  $Codec";;
 	  0x111d76e5)  Codec="Codec Name: IDT 92HD99BXX\nVendor Id:  $Codec";;
 	  0x11068446)  Codec="Codec Name: VIA VT1802\nVendor Id:  $Codec";;
-	  #Mac Codecs
+	 #Mac Codecs
 	  0x10134206)  Codec="Codec Name: Cirrus Logic CS4206\nVendor id:  $Codec";;
 	  0x10134208)  Codec="Codec Name: Cirrus Logic CS4208\nVendor id:  $Codec";;
 	  0x1AEC8800A) Codec="Codec Name: Cirrus Logic CS8409\nVendor id:  $Codec";;
 	  0x10138409)  Codec="Codec Name: Wolfson WM8800\nVendor id:  $Codec";;
-	  
 	  *)           Codec="Unknow onboard audio codec!!\nVendor id:  $Codec";;
   esac
 done
@@ -96,6 +95,7 @@ case ${hdmi} in
 	  0x10de0e1b)  hdmi="Codec Name: NVidia GK107\nVendor id:  $hdmi";;
 	  0x10de0e08)  hdmi="Codec Name: NVidia GF119\nVendor id:  $hdmi";;
 	  0x10de0be2)  hdmi="Codec Name: NVidia GT216\nVendor id:  $hdmi";;
+	  *)           hdmi="Codec Name: Unknow HDMI audio codec\nVendor id:  $hdmi";;
   esac
 done
 for hdmi in $HDMIamd
@@ -129,6 +129,7 @@ do
 	  0x1002aaa0)  hdmi="Codec Name: AMD Tahiti XT HDMI Audio\nVendor id:  $hdmi";;
 	  0x1002aac0)  hdmi="Codec Name: AMD Name: AMD Tobago HDMI Audio\nVendor id:  $hdmi";;
 	  0x1002aac8)  hdmi="Codec Name: AMD Hawaii HDMI Audio\nVendor id:  $hdmi";;
+	  *)           hdmi="Codec Name: Unknow HDMI audio codec\nVendor id:  $hdmi";;
   esac
 done
 
@@ -138,7 +139,6 @@ case ${hdmi} in
 	 #Intel HDMI Codecs.
 	  0x80862807)  hdmi="Codec Name: Intel Haswell HDMI\nVendor id:  $hdmi";;
 	  0x80862806)  hdmi="Codec Name: Intel Haswell HDMI\nVendor id:  $hdmi";;
-	  
 	  *)           hdmi="Codec Name: Unknow HDMI audio codec\nVendor id:  $hdmi";;
   esac
 done

@@ -1,0 +1,30 @@
+Codec: IDT 92HD91BXX
+Address: 0
+Vendor Id: 0x111d76e0
+Subsystem Id: 0x103c181d
+Revision Id: 0x100102
+
+
+EN: Use Layout 3 in the Patch HDEF your DSDT.
+
+PT_BR: Usar layout 3 no patch HDEF do seu DSDT.
+
+@Kext Patched by Mirone - www.olarila.com - www.insanelymac.com - www.hackintoshosx.com
+
+use this patch: 
+
+into method label _DSM parent_label HDEF remove_entry;
+into device label HDEF insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "built-in", Buffer() { 0x00 },\n
+        "layout-id", Buffer() { 0x03, 0x00, 0x00, 0x00 },\n
+        "hda-gfx", Buffer() { "onboard-1" },\n
+        "PinConfigurations", Buffer() { },\n
+    })\n
+}\n
+end;

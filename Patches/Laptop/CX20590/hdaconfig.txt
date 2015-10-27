@@ -1,0 +1,8 @@
+{
+    AFGLowPowerState = <03000000>;
+    Codec = "Mirone - Conexant CX20590";
+    CodecID = 351359086;
+    ConfigData = <01971c40 01971d10 01971e21 01971f00 01a71c30 01a71d10 01a71e81 01a71f00 01b71c20 01b71d00 01b71ea7 01b71f90 01f71c10 01f71d00 01f71e17 01f71f91>;
+    FuncGroup = 1;
+    LayoutID = 3;
+}

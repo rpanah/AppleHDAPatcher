@@ -1,0 +1,8 @@
+{
+    AFGLowPowerState = <03000000>;
+    Codec = "Mirone - Realtek ALC275";
+    CodecID = 283902581;
+    ConfigData = <01271c00 01271d00 01271ea0 01271f90 01471c10 01471d01 01471e17 01471f90 01571c20 01571d10 01571e21 01571f03 01470c02>;
+    FuncGroup = 1;
+    LayoutID = 3;
+}

@@ -1,0 +1,8 @@
+{
+    AFGLowPowerState = <01000000>;
+    Codec = "Mirone - Realtek CX20757";
+    CodecID = 351359253;
+    ConfigData = <01671c10 01671d00 01671e21 01671f01 01771c20 01771d00 01771e13 01771f90 01871c30 01871d00 01871e81 01871f02 01a71c50 01a71d00 01a71ea0 01a71f90>;
+    FuncGroup = 1;
+    LayoutID = 3;
+}

@@ -1,0 +1,8 @@
+{
+    AFGLowPowerState = <03000000>;
+    Codec = "Mirone - Realtek ALC269VC";
+    CodecID = 283902569;
+    ConfigData = <01271c10 01271d00 01271ea6 01271f90 01571c20 01571d10 01571e21 01571f00 01871c30 01871d10 01871e81 01871f02 01b71c40 01b71d00 01b71e17 01b71f90 01b70c02>;
+    FuncGroup = 1;
+    LayoutID = 3;
+}

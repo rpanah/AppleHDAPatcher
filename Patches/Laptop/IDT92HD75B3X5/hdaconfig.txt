@@ -1,0 +1,8 @@
+{
+    AFGLowPowerState = <03000000>;
+    Codec = "Mirone - IDT 92HD75B3X5";
+    CodecID = 287143427;
+    ConfigData = <00b71c10 00b71d10 00b71ea0 00b71f90 00d71c20 00d71d00 00d71e17 00d71f90 00f71c30 00f71d40 00f71e21 00f71f01 01871c40 01871d90 01871e81 01871f01>;
+    FuncGroup = 1;
+    LayoutID = 3;
+}

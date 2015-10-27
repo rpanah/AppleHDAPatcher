@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Maintained by: Mironeⓒ
+# Maintained by: Mironeⓒ 
 # 
 # PCI ids : https://github.com/pciutils/pciids 
 # 
@@ -73,9 +73,9 @@ case ${Codec} in
 	 #Mac Codecs
 	  0x10134206)  Codec="Codec Name: Cirrus Logic CS4206\nVendor id:  $Codec";;
 	  0x10134208)  Codec="Codec Name: Cirrus Logic CS4208\nVendor id:  $Codec";;
-	  0x1AEC8800A) Codec="Codec Name: Cirrus Logic CS8409\nVendor id:  $Codec";;
-	  0x10138409)  Codec="Codec Name: Wolfson WM8800\nVendor id:  $Codec";;
-	  *)           Codec="Unknow onboard audio codec!!\nVendor id:  $Codec";;
+	  0x10138409)  Codec="Codec Name: Cirrus Logic CS8409\nVendor id:  $Codec";;
+	  0x1AEC8800A) Codec="Codec Name: Wolfson WM8800\nVendor id:  $Codec";;
+	 *)            Codec="Unknow onboard audio codec!!\nVendor id:  $Codec";;
   esac
 done
 printf "Onboard Audio Codec:\n$Codec\n\n"
@@ -98,9 +98,10 @@ case ${hdmi} in
 	  *)           hdmi="Codec Name: Unknow HDMI audio codec\nVendor id:  $hdmi";;
   esac
 done
+
 for hdmi in $HDMIamd
 do
-	 case ${hdmi} in
+case ${hdmi} in
 	 #AMD HDMI Codecs.
 	  0x10021308)  hdmi="Codec Name: AMD Kaveri HDMI/DP Audio Controller\nVendor id:  $hdmi";;
 	  0x10021314)  hdmi="Codec Name: AMD Wrestler HDMI Audio\nVendor id:  $hdmi";;

@@ -2,11 +2,14 @@
 
 ###  AppleHDAPatcher - v1.1 - El Capitan Supported.
 
+
+
 #### Please do not upload it on other servers.
- 
+
+
 Drag a codec folder (or various) to the app.
 
-#### Each codec folder must contain:
+Each codec folder must contain:
  
 •Platforms.xml.zlib
 •layout*.xml.zlib
@@ -69,6 +72,6 @@ In AppleHDAPatcher.app/Contents/Resources there must be an updated original Appl
 
 Credits:
  
-Binpatch script by ######  bcc9
+Binpatch script by bcc9
 
-The ###### oldnapalm  for all the help with the script.
+The oldnapalm for all the help with the script.

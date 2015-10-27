@@ -5,13 +5,17 @@
 
 
 
+
+
 #### Please do not upload it on other servers.
+
 
 
 Drag a codec folder (or various) to the app.
 
 Each codec folder must contain:
- 
+
+
 •Platforms.xml.zlib
 
 •layout*.xml.zlib

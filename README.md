@@ -79,8 +79,7 @@ The file binpatch.txt must contain the binpatch bytes sequence (if needed), for 
 ```
 In AppleHDAPatcher.app/Contents/Resources there must be an updated original AppleHDA.
 
-Credits:
+##### Credits: Oldnaplam,bcc9,cecekpawon.
  
-Binpatch script by bcc9
 
-The oldnapalm for all the help with the script.
+

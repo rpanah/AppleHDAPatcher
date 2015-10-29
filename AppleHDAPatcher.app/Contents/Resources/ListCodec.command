@@ -1,148 +1,174 @@
 #!/bin/bash
 
-# Maintained by: Mironeⓒ 
-# 
-# PCI ids : https://github.com/pciutils/pciids 
-# 
+# Maintained by: Mironeⓒ
+#
+# Credits: cecekpawon
+#
+# PCI ids : https://github.com/pciutils/pciids
+#
 # Using in AppleHAPatcher.app to identify installed audio codecs
-# 
+#
 # Mandatory Requirements:
-# 1. AppleHDA.kext 
+# 1. AppleHDA.kext
 #
-printf "Codecs Detecteds:\n\n" 
-#
-#  
-# detect installed codecs for Vendor id.
-ListCodec=$(ioreg -rxn IOHDACodecDevice | grep VendorID | awk '{ print $4 }' | sed -e 's/ffffffff//')
-HDMInvidia=$(ioreg -rxn IOHDACodecDevice | grep VendorID | awk '{ print $4 }' | sed 's/ffffffff//' | grep '0x10de')
-HDMIamd=$(ioreg -rxn IOHDACodecDevice | grep VendorID | awk '{ print $4 }' | sed 's/ffffffff//' | grep '0x1002')
-HDMIintel=$(ioreg -rxn IOHDACodecDevice | grep VendorID | awk '{ print $4 }' | sed 's/ffffffff//' | grep '0x8086')
 
+aONBOARD=(
+  [0x10134206]="Cirrus Logic CS4206"
+  [0x10134208]="Cirrus Logic CS4208"
+  [0x10138409]="Cirrus Logic CS8409"
+  [0x10ec0233]="Realtek ALC233"
+  [0x10ec0235]="Realtek ALC235"
+  [0x10ec0255]="Realtek ALC255"
+  [0x10ec0268]="Realtek ALC268"
+  [0x10ec0269]="Realtek ALC269"
+  [0x10ec0270]="Realtek ALC270"
+  [0x10ec0272]="Realtek ALC272"
+  [0x10ec0275]="Realtek ALC275"
+  [0x10ec0280]="Realtek ALC280"
+  [0x10ec0282]="Realtek ALC282"
+  [0x10ec0283]="Realtek ALC283"
+  [0x10ec0284]="Realtek ALC284"
+  [0x10ec0288]="Realtek ALC288"
+  [0x10ec0290]="Realtek ALC290"
+  [0x10ec0663]="Realtek ALC663"
+  [0x10ec0668]="Realtek ALC668"
+  [0x10ec0885]="Realtek ALC885"
+  [0x10ec0887]="Realtek ALC887"
+  [0x10ec0888]="Realtek ALC888"
+  [0x10ec0889]="Realtek ALC889"
+  [0x10ec0892]="Realtek ALC892"
+  [0x10ec0899]="Realtek ALC898"
+  [0x10ec0900]="Realtek ALC1150"
+  [0x11060441]="VT2021"
+  [0x11068446]="VIA VT1802"
+  [0x111d7603]="IDT 992HD75B3X5"
+  [0x111d7605]="IDT 92HD87B1/92HD81B1X5"
+  [0x111d7608]="IDT 92HD75B2X5"
+  [0x111d76b2]="IDT 92HD71B7X"
+  [0x111d76e0]="IDT 92HD91BXX"
+  [0x111d76e5]="IDT 92HD99BXX"
+  [0x111d76f3]="IDT 92HD66C3/65"
+  [0x14f15067]="Conexant 20583"
+  [0x14f15069]="Conexant 20585"
+  [0x14f1506c]="Conexant 20588"
+  [0x14f1506e]="Conexant 20590"
+  [0x14f1510f]="Conexant 20752"
+  [0x14f15114]="Conexant 20756"
+  [0x14f15115]="Conexant 20757"
+  [0x1aec8800]="Wolfson WM8800"
+)
+
+# http://lxr.free-electrons.com/source/sound/pci/hda/patch_hdmi.c
+
+aHDMI=(
+  [0x10027919]="RS600"
+  [0x1002791a]="RS690/780"
+  [0x1002793c]="RS600"
+  [0x1002aa01]="R6xx"
+  [0x10951390]="SiI1390"
+  [0x10951392]="SiI1392"
+  [0x10de0002]="MCP77/78"
+  [0x10de0003]="MCP77/78"
+  [0x10de0005]="MCP77/78"
+  [0x10de0006]="MCP77/78"
+  [0x10de0007]="MCP79/7A"
+  [0x10de000a]="GPU 0a"
+  [0x10de000b]="GPU 0b"
+  [0x10de000c]="MCP89"
+  [0x10de000d]="GPU 0d"
+  [0x10de0010]="GPU 10"
+  [0x10de0011]="GPU 11"
+  [0x10de0012]="GPU 12"
+  [0x10de0013]="GPU 13"
+  [0x10de0014]="GPU 14"
+  [0x10de0015]="GPU 15"
+  [0x10de0016]="GPU 16"
+  [0x10de0018]="GPU 18"
+  [0x10de0019]="GPU 19"
+  [0x10de001a]="GPU 1a"
+  [0x10de001b]="GPU 1b"
+  [0x10de001c]="GPU 1c"
+  [0x10de0020]="Tegra30"
+  [0x10de0022]="Tegra114"
+  [0x10de0028]="Tegra124"
+  [0x10de0029]="Tegra210"
+  [0x10de0040]="GPU 40"
+  [0x10de0041]="GPU 41"
+  [0x10de0042]="GPU 42"
+  [0x10de0043]="GPU 43"
+  [0x10de0044]="GPU 44"
+  [0x10de0051]="GPU 51"
+  [0x10de0060]="GPU 60"
+  [0x10de0067]="MCP67"
+  [0x10de0070]="GPU 70"
+  [0x10de0071]="GPU 71"
+  [0x10de0072]="GPU 72"
+  [0x10de007d]="GPU 7d"
+  [0x10de8001]="MCP73"
+  [0x11069f80]="VX900"
+  [0x11069f81]="VX900"
+  [0x11069f84]="VX11"
+  [0x11069f85]="VX11"
+  [0x17e80047]="Chrontel"
+  [0x80860054]="IbexPeak"
+  [0x80862801]="Bearlake"
+  [0x80862802]="Cantiga"
+  [0x80862803]="Eaglelake"
+  [0x80862804]="IbexPeak"
+  [0x80862805]="CougarPoint"
+  [0x80862806]="PantherPoint"
+  [0x80862807]="Haswell"
+  [0x80862808]="Broadwell"
+  [0x80862809]="Skylake"
+  [0x8086280a]="Broxton"
+  [0x80862880]="CedarTrail"
+  [0x80862882]="Valleyview2"
+  [0x80862883]="Braswell"
+  [0x808629fb]="Crestline"
+)
+
+#
+#
+# detect installed codecs for Vendor id.
+ListCodec=$(ioreg -rxn IOHDACodecDevice | grep VendorID | awk '{ print $4 }' | sed 's/ffffffff//')
 
 # no codecs detected.
 if [[ -z "${ListCodec}" ]]; then
-	printf "No audio codec detected!!"
-exit 1
+  printf "No audio codec detected!!"
+  exit 1
 fi
 
+printf "Codecs Detecteds:\n\n"
 
 for Codec in $ListCodec
 do
-case ${Codec} in
-	#Desktop's.
-          0x10ec0885)  Codec="Codec Name: Realtek ALC885\nVendor Id:  $Codec";;
-          0x10ec0887)  Codec="Codec Name: Realtek ALC887\nVendor Id:  $Codec";;
-      	  0x10ec0888)  Codec="Codec Name: Realtek ALC888\nVendor Id:  $Codec";;
-      	  0x10ec0889)  Codec="Codec Name: Realtek ALC889\nVendor Id:  $Codec";;
-          0x10ec0892)  Codec="Codec Name: Realtek ALC892\nVendor Id:  $Codec";;
-          0x10ec0899)  Codec="Codec Name: Realtek ALC898\nVendor Id:  $Codec";;
-          0x10ec0900)  Codec="Codec Name: Realtek ALC1150\nVendor Id: $Codec";;
-	  0x11060441)  Codec="Codec Name: VT2021\nVendor Id:  $Codec";;
-	#Laptop's.
-	  0x10ec0233)  Codec="Codec Name: Realtek ALC233\nVendor Id:  $Codec";;
-	  0x10ec0235)  Codec="Codec Name: Realtek ALC235\nVendor Id:  $Codec";;
-	  0x10ec0255)  Codec="Codec Name: Realtek ALC255\nVendor Id:  $Codec";;
-	  0x10ec0268)  Codec="Codec Name: Realtek ALC268\nVendor Id:  $Codec";;
-	  0x10ec0269)  Codec="Codec Name: Realtek ALC269\nVendor Id:  $Codec";;
-	  0x10ec0270)  Codec="Codec Name: Realtek ALC270\nVendor Id:  $Codec";;
-	  0x10ec0272)  Codec="Codec Name: Realtek ALC272\nVendor Id:  $Codec";;
-	  0x10ec0275)  Codec="Codec Name: Realtek ALC275\nVendor Id:  $Codec";;
-	  0x10ec0280)  Codec="Codec Name: Realtek ALC280\nVendor Id:  $Codec";;
-	  0x10ec0282)  Codec="Codec Name: Realtek ALC282\nVendor Id:  $Codec";;
-	  0x10ec0283)  Codec="Codec Name: Realtek ALC283\nVendor Id:  $Codec";;
-	  0x10ec0284)  Codec="Codec Name: Realtek ALC284\nVendor Id:  $Codec";;
-	  0x10ec0288)  Codec="Codec Name: Realtek ALC288\nVendor Id:  $Codec";;
-	  0x10ec0290)  Codec="Codec Name: Realtek ALC290\nVendor Id:  $Codec";;
-	  0x10ec0663)  Codec="Codec Name: Realtek ALC663\nVendor Id:  $Codec";;
-	  0x10ec0668)  Codec="Codec Name: Realtek ALC668\nVendor Id:  $Codec";;
-	  0x14f15067)  Codec="Codec Name: Conexant 20583\nVendor Id:  $Codec";;
-	  0x14f15069)  Codec="Codec Name: Conexant 20585\nVendor Id:  $Codec";;
-	  0x14F1506C)  Codec="Codec Name: Conexant 20588\nVendor Id:  $Codec";;
-	  0x14F1506E)  Codec="Codec Name: Conexant 20590\nVendor Id:  $Codec";;
-	  0x14F1510F)  Codec="Codec Name: Conexant 20752\nVendor Id:  $Codec";;
-	  0x14f15114)  Codec="Codec Name: Conexant 20756\nVendor Id:  $Codec";;
-	  0x14f15115)  Codec="Codec Name: Conexant 20757\nVendor Id:  $Codec";;
-	  0x111d76f3)  Codec="Codec Name: IDT 92HD66C3/65\nVendor Id:  $Codec";;
-	  0x111d76b2)  Codec="Codec Name: IDT 92HD71B7X\nVendor Id:  $Codec";;
-	  0x111d7608)  Codec="Codec Name: IDT 92HD75B2X5\nVendor Id:  $Codec";;
-	  0x111D7603)  Codec="Codec Name: IDT 992HD75B3X5\nVendor Id:  $Codec";;
-	  0x111d7605)  Codec="Codec Name: IDT 92HD87B1/92HD81B1X5\nVendor Id:  $Codec";;
-	  0x111d76e0)  Codec="Codec Name: IDT 92HD91BXX\nVendor Id:  $Codec";;
-	  0x111d76e5)  Codec="Codec Name: IDT 92HD99BXX\nVendor Id:  $Codec";;
-	  0x11068446)  Codec="Codec Name: VIA VT1802\nVendor Id:  $Codec";;
-	 #Mac Codecs
-	  0x10134206)  Codec="Codec Name: Cirrus Logic CS4206\nVendor id:  $Codec";;
-	  0x10134208)  Codec="Codec Name: Cirrus Logic CS4208\nVendor id:  $Codec";;
-	  0x10138409)  Codec="Codec Name: Cirrus Logic CS8409\nVendor id:  $Codec";;
-	  0x1AEC8800A) Codec="Codec Name: Wolfson WM8800\nVendor id:  $Codec";;
-	 *)            Codec="Unknow onboard audio codec!!\nVendor id:  $Codec";;
-  esac
+  Vendor="ONBOARD"
+  Tmp="${aONBOARD[$Codec]}"
+
+  if [[ -z "${Tmp}" ]]; then
+    Tmp=$(echo "${Codec}" | egrep -o '0x(10de|1002|8086)')
+
+    if [[ ! -z "${Tmp}" ]]; then
+      Vendor="Unknown"
+      HDMI="${aHDMI[$Codec]}"
+
+      if [[ ! -z "${HDMI}" ]]; then
+        case "${Tmp}" in
+          0x8086) Vendor="INTEL";;
+          0x10de) Vendor="NVIDIA";;
+          0x1002) Vendor="AMD/ATI";;
+        esac
+
+        if [[ "${Vendor}" != "Unknown" ]]; then
+          Tmp="${HDMI}"
+          Vendor+=" DP/HDMI"
+        fi
+      else
+        Tmp="Unknown"
+        Vendor="Unknown"
+      fi
+    fi
+  fi
+
+  printf "Vendor: %s\nName: %s\nCodec: %s\n\n" "${Vendor}" "${Tmp}" "${Codec}"
 done
-printf "Onboard Audio Codec:\n$Codec\n\n"
-
-
-for hdmi in $HDMInvidia
-do
-case ${hdmi} in
-	#NVidia HDMI Codecs.
-	  0x10de000a)  hdmi="Codec Name: NVidia GT216\nVendor id:  $hdmi";;
-	  0x10de000b)  hdmi="Codec Name: NVidia GT216\nVendor id:  $hdmi";;
-	  0x10de0e08)  hdmi="Codec Name: NVidia GF119\nVendor id:  $hdmi";;
-	  0x10de0e0a)  hdmi="Codec Name: NVidia GK104\nVendor id:  $hdmi";;
-	  0x10de0e0b)  hdmi="Codec Name: NVidia GK106\nVendor id:  $hdmi";;
-	  0x10de0e0c)  hdmi="Codec Name: NVidia GF114\nVendor id:  $hdmi";;
-	  0x10de0e1a)  hdmi="Codec Name: NVidia GK110\nVendor id:  $hdmi";;
-	  0x10de0e1b)  hdmi="Codec Name: NVidia GK107\nVendor id:  $hdmi";;
-	  0x10de0e08)  hdmi="Codec Name: NVidia GF119\nVendor id:  $hdmi";;
-	  0x10de0be2)  hdmi="Codec Name: NVidia GT216\nVendor id:  $hdmi";;
-	  *)           hdmi="Codec Name: Unknow HDMI audio codec\nVendor id:  $hdmi";;
-  esac
-done
-
-for hdmi in $HDMIamd
-do
-case ${hdmi} in
-	 #AMD HDMI Codecs.
-	  0x10021308)  hdmi="Codec Name: AMD Kaveri HDMI/DP Audio Controller\nVendor id:  $hdmi";;
-	  0x10021314)  hdmi="Codec Name: AMD Wrestler HDMI Audio\nVendor id:  $hdmi";;
-	  0x10021714)  hdmi="Codec Name: AMD BeaverCreek HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002793b)  hdmi="Codec Name: AMD RS600 HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002960f)  hdmi="Codec Name: AMD RS780 HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002970f)  hdmi="Codec Name: AMD RS880 HDMI Audio\nVendor id:  $hdmi";;
-	  0x10029840)  hdmi="Codec Name: AMD Kabini HDMI/DP Audio\nVendor id:  $hdmi";;
-	  0x10029902)  hdmi="Codec Name: AMD Trinity HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa00)  hdmi="Codec Name: AMD R600 HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa08)  hdmi="Codec Name: AMD RV630 HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa10)  hdmi="Codec Name: AMD RV610 HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa18)  hdmi="Codec Name: AMD RV670/680 HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa20)  hdmi="Codec Name: AMD RV635 HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa28)  hdmi="Codec Name: AMD RV620 HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa30)  hdmi="Codec Name: AMD RV770 HDMI Audio\n Vendor id:  $hdmi";;
-	  0x1002aa38)  hdmi="Codec Name: AMD RV710/730 HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa50)  hdmi="Codec Name: AMD Cypress HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa58)  hdmi="Codec Name: AMD Juniper HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa60)  hdmi="Codec Name: AMD Redwood HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa68)  hdmi="Codec Name: AMD Cedar HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa80)  hdmi="Codec Name: AMD Cayman/Antilles HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aa88)  hdmi="Codec Name: AMD Barts HDMI Audio\nVendor id:  $hdmi ";;
-	  0x1002aa90)  hdmi="Codec Name: AMD Turks/Whistler HDMI Audio\n  id:  $hdmi";;
-	  0x1002aa98)  hdmi="Codec Name: AMD Caicos HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aaa0)  hdmi="Codec Name: AMD Tahiti XT HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aac0)  hdmi="Codec Name: AMD Name: AMD Tobago HDMI Audio\nVendor id:  $hdmi";;
-	  0x1002aac8)  hdmi="Codec Name: AMD Hawaii HDMI Audio\nVendor id:  $hdmi";;
-	  *)           hdmi="Codec Name: Unknow HDMI audio codec\nVendor id:  $hdmi";;
-  esac
-done
-
-for hdmi in $HDMIintel
-do
-case ${hdmi} in
-	 #Intel HDMI Codecs.
-	  0x80862807)  hdmi="Codec Name: Intel Haswell HDMI\nVendor id:  $hdmi";;
-	  0x80862806)  hdmi="Codec Name: Intel Haswell HDMI\nVendor id:  $hdmi";;
-	  *)           hdmi="Codec Name: Unknow HDMI audio codec\nVendor id:  $hdmi";;
-  esac
-done
-printf "HDMI Audio Codec(s):\n$hdmi\n\n"
-
-

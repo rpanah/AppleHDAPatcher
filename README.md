@@ -9,7 +9,7 @@
 
 #### Please do not upload it on other servers.
 
-
+All patches are copyright(c) Mirone.
 
 Drag a codec folder (or various) to the app.
 

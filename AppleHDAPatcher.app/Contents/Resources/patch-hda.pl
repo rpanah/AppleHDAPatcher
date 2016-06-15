@@ -131,6 +131,19 @@ my @codec_compares_osx1011 = (
     0x11d4198b,
     0x10de0000,
     );
+my @codec_compares_osx1012 = (
+    0x8384767f,
+    0x1002aa01,
+    0x83847680,
+    0x1aec8800,
+    0x15ad1975,
+    0x10134206,
+    0x10134208,
+    0x10ec0262,
+    0x11d41984,
+    0x11d4198b,
+    0x10de0000,
+    );
 
 my @codec_compares = ();
 my @ranges = ();
@@ -341,7 +354,9 @@ sub osvers
 	if ($verbose) {
 	    printf "kext version %s\n", $kextvers;
 	}
-	if ($kextvers >= "272.36") {
+	if ($kextvers >= "275.68") {
+        return("10.12");
+    } elsif ($kextvers >= "272.36") {
 	    return("10.11");
 	} elsif ($kextvers >= "272") {
 	    return("10.10");
@@ -470,12 +485,15 @@ retry:
     elsif ($osxvers lt "10.11.9"){
     @codec_compares = @codec_compares_osx1011;
     }
+    elsif ($osxvers lt "10.12.9"){
+    @codec_compares = @codec_compares_osx1012;
+    }
     elsif ($osxvers < "10.7.5") {
-	@codec_compares = @codec_compares_osx107;
+    @codec_compares = @codec_compares_osx107;
     } elsif ($osxvers < "10.9.5") {
-	@codec_compares = @codec_compares_osx108;
+    @codec_compares = @codec_compares_osx108;
     } else {
-	@codec_compares = @codec_compares_osx109;
+    @codec_compares = @codec_compares_osx109;
     }
 
     if (!$target_id) {

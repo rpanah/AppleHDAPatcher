@@ -143,7 +143,7 @@ my @codec_compares_osx1012 = (
     0x10ec0262,
     0x10ec0885,
     0x11d41984,
-    0x11d4198a
+    0x11d4198a,
     0x11d4198b,
     0x10de0000,
     );

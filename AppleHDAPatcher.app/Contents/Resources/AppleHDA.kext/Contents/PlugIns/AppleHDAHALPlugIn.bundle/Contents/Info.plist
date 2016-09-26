@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>15A256</string>
+	<string>15A284</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>AppleHDAHALPlugIn</string>
 	<key>CFBundleGetInfoString</key>
-	<string>AppleHDAHALPlugIn 272.50.31, Copyright © 2000-2015 Apple Inc. All rights reserved.</string>
+	<string>AppleHDAHALPlugIn 276.26, Copyright © 2000-2016 Apple Inc. All rights reserved.</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.apple.audio.AppleHDAHALPlugIn</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>272.50.31</string>
+	<string>276.26</string>
 	<key>CFBundleSignature</key>
 	<string>aaud</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -27,22 +27,22 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>272.50.31</string>
+	<string>276.26</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>7A176g</string>
+	<string>8R174l</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>15B22</string>
+	<string>16A316</string>
 	<key>DTSDKName</key>
-	<string>macosx10.11internal</string>
+	<string>macosx10.12internal</string>
 	<key>DTXcode</key>
-	<string>0700</string>
+	<string>0800</string>
 	<key>DTXcodeBuild</key>
-	<string>7A176g</string>
+	<string>8R174l</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>AppleHDAHALPlugIn 272.50.31, Copyright © 2000-2015 Apple Inc. All rights reserved.</string>
+	<string>AppleHDAHALPlugIn 276.26, Copyright © 2000-2016 Apple Inc. All rights reserved.</string>
 </dict>
 </plist>

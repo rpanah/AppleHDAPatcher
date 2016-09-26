@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>15A256</string>
+	<string>15A284</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>AppleHDAHardwareConfigDriver</string>
 	<key>CFBundleGetInfoString</key>
-	<string>AppleHDAHardwareConfigDriver 272.50.31, Copyright © 2000-2015 Apple Inc. All rights reserved.</string>
+	<string>AppleHDAHardwareConfigDriver 276.26, Copyright © 2000-2016 Apple Inc. All rights reserved.</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.apple.driver.AppleHDAHardwareConfigDriver</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>272.50.31</string>
+	<string>276.26</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -27,21 +27,21 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>272.50.31</string>
+	<string>276.26</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>7A176g</string>
+	<string>8R174l</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>15B29</string>
+	<string>16A320</string>
 	<key>DTSDKName</key>
-	<string>macosx10.11internal</string>
+	<string>macosx10.12internal</string>
 	<key>DTXcode</key>
-	<string>0700</string>
+	<string>0800</string>
 	<key>DTXcodeBuild</key>
-	<string>7A176g</string>
+	<string>8R174l</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>HDA Hardware Config Resource</key>
@@ -353,40 +353,6 @@
 				</dict>
 				<dict>
 					<key>CodecID</key>
-					<integer>-2088470912</integer>
-					<key>ConfigData</key>
-					<data>
-					AKccUACnHUAApx4rAKcfAQC3HBAAtx0BALce
-					oAC3H5AAxxxAAMcdAQDHHhAAxx+QANcc8ADX
-					HQAA1x4AANcfQADnHPAA5x0AAOceAADnH0AA
-					9xwgAPcdMAD3HosA9x8BAQccYAEHHeABBx5L
-					AQcfAQEXHDABFx3gARceywEXHwEBVxzwAVcd
-					AAFXHgABVx9AAbcc8AG3HQABtx4AAbcfQA==
-					</data>
-					<key>FuncGroup</key>
-					<integer>1</integer>
-					<key>LayoutID</key>
-					<integer>14</integer>
-				</dict>
-				<dict>
-					<key>CodecID</key>
-					<integer>-2088470912</integer>
-					<key>ConfigData</key>
-					<data>
-					AKccUACnHUAApx4rAKcfAQC3HBAAtx0BALce
-					oAC3H5AAxxxAAMcdAQDHHhAAxx+QANcc8ADX
-					HQAA1x4AANcfQADnHPAA5x0AAOceAADnH0AA
-					9xwgAPcdMAD3HosA9x8BAQccYAEHHeABBx5L
-					AQcfAQEXHDABFx3gARceywEXHwEBVxzwAVcd
-					AAFXHgABVx9AAbcc8AG3HQABtx4AAbcfQA==
-					</data>
-					<key>FuncGroup</key>
-					<integer>1</integer>
-					<key>LayoutID</key>
-					<integer>15</integer>
-				</dict>
-				<dict>
-					<key>CodecID</key>
 					<integer>283904133</integer>
 					<key>ConfigData</key>
 					<data>
@@ -675,6 +641,30 @@
 							<integer>69</integer>
 							<key>PinConfigDefault</key>
 							<integer>1073742064</integer>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>CodecID</key>
+					<integer>269714441</integer>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>Layouts</key>
+					<array>
+						<integer>14</integer>
+						<integer>15</integer>
+						<integer>16</integer>
+						<integer>54</integer>
+						<integer>55</integer>
+						<integer>57</integer>
+					</array>
+					<key>widgets</key>
+					<array>
+						<dict>
+							<key>NodeID</key>
+							<integer>69</integer>
+							<key>PinConfigDefault</key>
+							<integer>2426405121</integer>
 						</dict>
 					</array>
 				</dict>
@@ -1084,7 +1074,7 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>AppleHDAHardwareConfigDriver 272.50.31, Copyright © 2000-2015 Apple Inc. All rights reserved.</string>
+	<string>AppleHDAHardwareConfigDriver 276.26, Copyright © 2000-2016 Apple Inc. All rights reserved.</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.kpi.iokit</key>

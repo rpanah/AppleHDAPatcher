@@ -5,14 +5,14 @@
 	<key>BuildAliasOf</key>
 	<string>AppleHDA</string>
 	<key>BuildVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>CFBundleShortVersionString</key>
-	<string>272.50.31</string>
+	<string>276.26</string>
 	<key>CFBundleVersion</key>
-	<string>272.50.31</string>
+	<string>276.26</string>
 	<key>ProjectName</key>
 	<string>AppleHDA_frameworks</string>
 	<key>SourceVersion</key>
-	<string>272050031000000</string>
+	<string>276026000000000</string>
 </dict>
 </plist>

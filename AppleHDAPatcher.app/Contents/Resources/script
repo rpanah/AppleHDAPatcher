@@ -8,7 +8,7 @@
 $dir = $ARGV[0];
 if(!$dir) {
 	
-	print"\t\t\tAppleHDAPatcher - v1.1 - El Capitan Supported\n";
+	print"\t\t\tAppleHDAPatcher - v1.2\n";
 	print"\t\t\t  Drag codec folder on window to process it \n\n\n";
 	system("./ListCodec.command");
 }

@@ -1,0 +1,8 @@
+{
+    AFGLowPowerState = <03000000>;
+    Codec = "Mirone - Realtek ALC269VC - Samsung NP350V5C-S0URU";
+    CodecID = 283902569;
+    ConfigData = <01471c10 01471d00 01471e17 01471f90 01871c20 01871d10 01871e81 01871f02 01571c30 01571d10 01571e21 01571f02 01971c40 01971d00 01971ea0 01971f90 01470c02>;
+    FuncGroup = 1;
+    LayoutID = 3;
+}

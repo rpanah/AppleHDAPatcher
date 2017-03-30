@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>AppleHDAHardwareConfigDriver</string>
 	<key>CFBundleGetInfoString</key>
-	<string>AppleHDAHardwareConfigDriver 278.56, Copyright © 2000-2016 Apple Inc. All rights reserved.</string>
+	<string>AppleHDAHardwareConfigDriver 279.48, Copyright © 2000-2017 Apple Inc. All rights reserved.</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.apple.driver.AppleHDAHardwareConfigDriver</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>278.56</string>
+	<string>279.48</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -27,21 +27,21 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>278.56</string>
+	<string>279.48</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>8R174l</string>
+	<string>8V109d</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>16D20</string>
+	<string>16E189</string>
 	<key>DTSDKName</key>
 	<string>macosx10.12internal</string>
 	<key>DTXcode</key>
-	<string>0800</string>
+	<string>0830</string>
 	<key>DTXcodeBuild</key>
-	<string>8R174l</string>
+	<string>8V109d</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>HDA Hardware Config Resource</key>
@@ -651,9 +651,6 @@
 					<integer>1</integer>
 					<key>Layouts</key>
 					<array>
-						<integer>14</integer>
-						<integer>15</integer>
-						<integer>16</integer>
 						<integer>54</integer>
 						<integer>55</integer>
 						<integer>57</integer>
@@ -1074,7 +1071,7 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>AppleHDAHardwareConfigDriver 278.56, Copyright © 2000-2016 Apple Inc. All rights reserved.</string>
+	<string>AppleHDAHardwareConfigDriver 279.48, Copyright © 2000-2017 Apple Inc. All rights reserved.</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.kpi.iokit</key>

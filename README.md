@@ -2,7 +2,7 @@
 
 ###  AppleHDAPatcher - v1.3
 
-Updated for Sierra 10.12.3 and AppleHDA 278.56
+Updated for Sierra 10.12.4 and AppleHDA 279.48
 
 
 
